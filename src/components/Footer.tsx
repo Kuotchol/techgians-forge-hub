@@ -56,7 +56,7 @@ export const Footer = () => {
         </div>
         
         <div className="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
-          <p>&copy; 2024 TechGiants. Building the future, one innovation at a time.</p>
+          <p>&copy; {new Date().getFullYear()} TechGiants. Building the future, one innovation at a time.</p>
         </div>
       </div>
     </footer>
