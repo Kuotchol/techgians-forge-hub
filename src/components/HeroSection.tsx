@@ -1,9 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, Lightbulb, Rocket } from "lucide-react";
 
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 export const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-hero pt-20">
+    <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-hero pt-20">
       <div className="container mx-auto px-6 text-center">
         <div className="animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
@@ -15,11 +22,20 @@ export const HeroSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button size="lg" className="bg-gradient-primary hover:opacity-90 text-lg px-8 py-3">
+            <Button 
+              size="lg" 
+              className="bg-gradient-primary hover:opacity-90 text-lg px-8 py-3"
+              onClick={() => scrollToSection('contact')}
+            >
               Join Our Community
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-3 border-tech-blue hover:bg-tech-blue/10">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="text-lg px-8 py-3 border-tech-blue hover:bg-tech-blue/10"
+              onClick={() => scrollToSection('services')}
+            >
               Explore Innovation
             </Button>
           </div>

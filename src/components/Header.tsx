@@ -1,11 +1,18 @@
 import { Button } from "@/components/ui/button";
 
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 export const Header = () => {
   return (
     <header className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 cursor-pointer" onClick={() => scrollToSection('hero')}>
             <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-lg">TG</span>
             </div>
@@ -15,21 +22,37 @@ export const Header = () => {
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">
+            <button 
+              onClick={() => scrollToSection('about')} 
+              className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+            >
               About
-            </a>
-            <a href="#services" className="text-muted-foreground hover:text-foreground transition-colors">
+            </button>
+            <button 
+              onClick={() => scrollToSection('services')} 
+              className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+            >
               Innovation
-            </a>
-            <a href="#community" className="text-muted-foreground hover:text-foreground transition-colors">
+            </button>
+            <button 
+              onClick={() => scrollToSection('community')} 
+              className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+            >
               Community
-            </a>
-            <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">
+            </button>
+            <button 
+              onClick={() => scrollToSection('contact')} 
+              className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+            >
               Contact
-            </a>
+            </button>
           </nav>
           
-          <Button variant="default" className="bg-gradient-primary hover:opacity-90">
+          <Button 
+            variant="default" 
+            className="bg-gradient-primary hover:opacity-90"
+            onClick={() => scrollToSection('contact')}
+          >
             Join Us
           </Button>
         </div>
